@@ -1,14 +1,6 @@
 import { useState } from 'react';
 import { styles } from './styles.ts';
-import { Ball } from './Ball';
-
-const ListaNumeros = ({ numeros }: { numeros: number[] }) => (
-  <div style={styles.listaNumeros}>
-    {numeros.map((num, index) => (
-      <Ball key={`${index}-${num}`} num={num} backgroundColor="#4a90e2" />
-    ))}
-  </div>
-);
+import ListaNumeros from './ListaNumeros';
 
 const Exercicio1 = () => {
   const [quantidade, setQuantidade] = useState<number | ''>('');
@@ -40,7 +32,7 @@ const Exercicio1 = () => {
         placeholder="Quantidade de números"
         style={styles.inputQuantidade}
       />
-      <ListaNumeros numeros={numeros} />
+      <ListaNumeros numeros={numeros} backgroundColor="#4a90e2" />
     </div>
   );
 };
