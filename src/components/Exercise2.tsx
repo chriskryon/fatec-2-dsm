@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { styles } from './styles';
-import ListaNumeros from './ListaNumeros';
+import { Ball } from './Ball';
 
 const Exercicio2 = () => {
   const [quantidade, setQuantidade] = useState<number | ''>('');
@@ -26,7 +26,7 @@ const Exercicio2 = () => {
   };
 
   const removerNumero = (index: number) => {
-    const novosNumeros = numeros.filter((_, i) => i !== index);
+    const novosNumeros = numeros.filter((_, i) => i != index);
     setNumeros(novosNumeros);
   };
 
@@ -41,11 +41,16 @@ const Exercicio2 = () => {
         placeholder="Digite um número"
         style={styles.inputQuantidade}
       />
-      <ListaNumeros
-        numeros={numeros}
-        onRemove={removerNumero}
-        backgroundColor="#e74c3c"
-      />
+      <div style={styles.listaNumeros}>
+        {numeros.map((num, index) => (
+          <Ball
+            key={`${index}-${num}`}
+            num={num}
+            onRemove={() => removerNumero(index)}
+            backgroundColor="#e74c3c"
+          />
+        ))}
+      </div>
     </div>
   );
 };

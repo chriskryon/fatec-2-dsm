@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { styles } from './styles.ts';
-import ListaNumeros from './ListaNumeros';
+import { Ball } from './Ball.tsx';
 
 const Exercicio1 = () => {
   const [quantidade, setQuantidade] = useState<number | ''>('');
@@ -8,10 +8,13 @@ const Exercicio1 = () => {
 
   const gerarNumeros = (quantidade: number) => {
     const limite = Math.min(quantidade, 12); // Limitar a 12 números
-    const numerosGerados = Array.from({ length: limite }, () =>
-      Math.floor(Math.random() * 100),
-    );
-    setNumeros(numerosGerados.sort((a, b) => a - b)); // Ordenar em ordem crescente
+
+    const numerosGerados = [];
+    for (let i = 0; i < limite; i++) {
+      numerosGerados.push(Math.floor(Math.random() * 100));
+    }
+
+    setNumeros(numerosGerados.sort()); // Ordenar em ordem crescente
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -32,7 +35,11 @@ const Exercicio1 = () => {
         placeholder="Quantidade de números"
         style={styles.inputQuantidade}
       />
-      <ListaNumeros numeros={numeros} backgroundColor="#4a90e2" />
+      <div style={styles.listaNumeros}>
+        {numeros.map((num, index) => (
+          <Ball key={`${index}-${num}`} num={num} backgroundColor="#4a90e2" />
+        ))}
+      </div>
     </div>
   );
 };
