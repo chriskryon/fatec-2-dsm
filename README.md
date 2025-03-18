@@ -14,4 +14,4 @@ O objetivo é compreender e utilizar componentes React, gerenciar dados com stat
 
 Abaixo está uma imagem ilustrativa do projeto em execução:
 
-![Imagem do Projeto](./screenshot.png)
+![Imagem do Projeto](./exercicio.png)
