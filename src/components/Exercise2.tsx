@@ -3,20 +3,33 @@ import { styles } from './styles';
 import { Ball } from './Ball';
 
 const Exercicio2 = () => {
+  // Criação os useStates para controle
   const [quantidade, setQuantidade] = useState<number | ''>('');
   const [numeros, setNumeros] = useState<number[]>([]);
 
+  // Criação do handleChange para controlar a quantidade
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
-    if (!isNaN(value) && value >= 0) {
+    if (!Number.isNaN(value) && value >= 0) {
       setQuantidade(value);
-      gerarNumeros(value);
     } else {
       setQuantidade('');
     }
   };
 
-  const gerarNumeros = (quantidade: number) => {
+  // Criação do handleKeyDown para criar os números
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (
+      e.key === 'Enter' &&
+      typeof quantidade === 'number' &&
+      quantidade >= 0
+    ) {
+      adicionarNumero(quantidade);
+    }
+  };
+
+  // Método para adicionar os números
+  const adicionarNumero = (quantidade: number) => {
     const limite = 12;
     const novosNumeros = [...numeros, quantidade];
     if (novosNumeros.length > limite) {
@@ -25,8 +38,9 @@ const Exercicio2 = () => {
     setNumeros(novosNumeros);
   };
 
+  // Método para remover os números
   const removerNumero = (index: number) => {
-    const novosNumeros = numeros.filter((_, i) => i != index);
+    const novosNumeros = numeros.filter((_, i) => i !== index);
     setNumeros(novosNumeros);
   };
 
@@ -37,6 +51,7 @@ const Exercicio2 = () => {
         type="number"
         value={quantidade}
         onChange={handleChange}
+        onKeyDown={handleKeyDown}
         min="0"
         placeholder="Digite um número"
         style={styles.inputQuantidade}

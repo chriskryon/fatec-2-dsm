@@ -1,6 +1,6 @@
 import { styles } from './styles.ts';
 
-export interface BallProps {
+interface BallProps {
   num: number;
   onRemove?: (index: number) => void;
   backgroundColor?: string; // Cor de fundo opcional
@@ -9,7 +9,7 @@ export interface BallProps {
 // Componente que representa uma "bola" com um número dentro
 export const Ball = ({
   num,
-  onRemove,
+  onRemove, // Assinatura da função de remoção para ser chamada ao clicar com o botão direito
   backgroundColor = '#4a90e2',
 }: BallProps) => (
   <div
@@ -18,7 +18,7 @@ export const Ball = ({
       e.preventDefault(); // Previne o menu de contexto padrão do navegador
       onRemove?.(num); // Chama a função de remoção com o número como argumento
     }}
-  >
-    {num} {/* Exibe o número dentro da bola */}
+    >
+    <strong>{num}</strong> {/* Exibe o número dentro da bola em negrito */}
   </div>
 );
