@@ -9,13 +9,16 @@ const Exercicio1 = () => {
 
   // Método para gerar os números
   const gerarNumeros = (quantidade: number) => {
+    // Selecionar a quantidade de números a serem gerados, limitando a 12
     const limite = Math.min(quantidade, 12); // Limitar a 12 números
 
     const numerosGerados = [];
 
     // Gerar números aleatórios
     for (let i = 0; i < limite; i++) {
-      numerosGerados.push(Math.floor(Math.random() * 100));
+      // O * 100 serve para gerar números entre 0 e 99
+      const numeroGerado = Math.floor(Math.random() * 100);
+      numerosGerados.push(numeroGerado);
     }
 
     setNumeros(numerosGerados.sort()); // Ordenar em ordem crescente

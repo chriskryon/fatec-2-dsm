@@ -4,43 +4,45 @@ import { Ball } from './Ball';
 
 const Exercicio2 = () => {
   // Criação os useStates para controle
-  const [quantidade, setQuantidade] = useState<number | ''>('');
+  const [valor, setValor] = useState<number | ''>('');
   const [numeros, setNumeros] = useState<number[]>([]);
 
   // Criação do handleChange para controlar a quantidade
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
     if (!Number.isNaN(value) && value >= 0) {
-      setQuantidade(value);
+      setValor(value);
     } else {
-      setQuantidade('');
+      setValor('');
     }
   };
 
   // Criação do handleKeyDown para criar os números
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (
-      e.key === 'Enter' &&
-      typeof quantidade === 'number' &&
-      quantidade >= 0
-    ) {
-      adicionarNumero(quantidade);
+    if (e.key === 'Enter' && typeof valor === 'number' && valor >= 0) {
+      adicionarNumero(valor);
     }
   };
 
   // Método para adicionar os números
-  const adicionarNumero = (quantidade: number) => {
-    const limite = 12;
-    const novosNumeros = [...numeros, quantidade];
-    if (novosNumeros.length > limite) {
+  const adicionarNumero = (valor: number) => {
+    const LIMITE = 12;
+
+    const novosNumeros = [...numeros, valor];
+
+    if (novosNumeros.length > LIMITE) {
       novosNumeros.shift();
     }
+
     setNumeros(novosNumeros);
   };
 
   // Método para remover os números
   const removerNumero = (index: number) => {
-    const novosNumeros = numeros.filter((_, i) => i !== index);
+    // Deixar apenas os números que não são o que foi clicado para remover
+    const novosNumeros = numeros.filter(
+      (numero, indiceAtual) => indiceAtual !== index,
+    );
     setNumeros(novosNumeros);
   };
 
@@ -49,7 +51,7 @@ const Exercicio2 = () => {
       <h1 style={styles.titulo('#e74c3c')}>Exercício 2</h1>
       <input
         type="number"
-        value={quantidade}
+        value={valor}
         onChange={handleChange}
         onKeyDown={handleKeyDown}
         min="0"
