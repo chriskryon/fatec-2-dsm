@@ -29,7 +29,7 @@ export const styles = {
     color: 'white',
     marginBottom: '20px',
     fontFamily: 'Arial, sans-serif',
-    minWidth: '400px',
+    width: '570px',
   },
   titulo: (color: string) => ({
     fontSize: '24px',

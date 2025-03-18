@@ -24,7 +24,7 @@ const Exercicio2 = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = Number(e.target.value);
-    if (!Number.isNaN(value) && value > 0) {
+    if (!Number.isNaN(value) && value >= 0) {
       setQuantidade(value);
       gerarNumeros(value);
     } else {
@@ -46,7 +46,6 @@ const Exercicio2 = () => {
   const removerNumero = (index: number) => {
     const novosNumeros = [...numeros];
 
-    // Remove o número na posição especificada pelo índice
     novosNumeros.splice(index, 1);
     setNumeros(novosNumeros);
   };
@@ -58,7 +57,7 @@ const Exercicio2 = () => {
         type="number"
         value={quantidade}
         onChange={handleChange}
-        min="1"
+        min="0"
         placeholder="Digite um número"
         style={styles.inputQuantidade}
       />

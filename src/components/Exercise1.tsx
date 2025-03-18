@@ -11,7 +11,7 @@ const ListaNumeros = ({ numeros }: { numeros: number[] }) => (
 );
 
 const Exercicio1 = () => {
-  const [quantidade, setQuantidade] = useState(0);
+  const [quantidade, setQuantidade] = useState<number | ''>('');
   const [numeros, setNumeros] = useState<number[]>([]);
 
   const gerarNumeros = (quantidade: number) => {
