@@ -31,6 +31,7 @@ const Exercicio2 = () => {
     const novosNumeros = [...numeros, valor];
 
     if (novosNumeros.length > LIMITE) {
+      // O shift remove o primeiro elemento do array
       novosNumeros.shift();
     }
 
@@ -41,7 +42,9 @@ const Exercicio2 = () => {
   const removerNumero = (index: number) => {
     // Deixar apenas os números que não são o que foi clicado para remover
     const novosNumeros = numeros.filter(
-      (numero, indiceAtual) => indiceAtual !== index,
+      // O _ é o valor do elemento atual, o segundo argumento é o índice
+      // Está como _ pois não estamos utilizando o valor
+      (_, indiceAtual) => indiceAtual !== index,
     );
     setNumeros(novosNumeros);
   };
