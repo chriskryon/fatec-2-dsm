@@ -18,7 +18,7 @@ export const Ball = ({
       e.preventDefault(); // Previne o menu de contexto padrão do navegador
       onRemove?.(num); // Chama a função de remoção com o número como argumento
     }}
-    >
-    <strong>{num}</strong> {/* Exibe o número dentro da bola em negrito */}
+  >
+    {num} {/* Exibe o número dentro da bola */}
   </div>
 );
