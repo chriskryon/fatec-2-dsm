@@ -1,15 +1,18 @@
-import Exercicio1 from './components/Exercise1';
-import Exercicio2 from './components/Exercise2';
+import { Input } from './components/Input';
+import { Display } from './components/Display';
 import { styles } from './components/styles';
+import { TextProvider } from './contexts/BallContext';
 
 function App() {
   return (
-    <div style={styles.mainContainer}>
-      <div style={styles.appContainer}>
-        <Exercicio1 />
-        <Exercicio2 />
+    <TextProvider>
+      <div style={styles.mainContainer}>
+        <div style={styles.appContainer}>
+          <Input />
+          <Display />
+        </div>
       </div>
-    </div>
+    </TextProvider>
   );
 }
 
