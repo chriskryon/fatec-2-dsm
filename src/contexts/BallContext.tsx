@@ -1,7 +1,7 @@
 import { createContext, useContext, useState, type ReactNode } from 'react';
 import type { TextContextProps } from '../types';
 
-const TextContext = createContext<TextContextProps | undefined>(undefined);
+const TextContext = createContext<TextContextProps>({} as TextContextProps);
 
 export const TextProvider = ({ children }: { children: ReactNode }) => {
   const [input, setInput] = useState('');
@@ -14,9 +14,5 @@ export const TextProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export const useTextContext = () => {
-  const context = useContext(TextContext);
-  if (!context) {
-    throw new Error('useTextContext must be used within a TextProvider');
-  }
-  return context;
+  return useContext(TextContext);
 };
