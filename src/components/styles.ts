@@ -46,6 +46,7 @@ export const styles = {
     border: '1px solid rgba(255, 255, 255, 0.2)',
     borderRadius: '10px',
     minHeight: '60px',
+    width: '100%',
   },
   noInputText: {
     fontWeight: 'bold',
