@@ -1,8 +1,9 @@
-import { useTextContext } from '../contexts/BallContext';
+import { useContext } from 'react';
+import { TextContext } from '../contexts/BallContext';
 import { styles } from './styles';
 
 export const Input = () => {
-  const { setInput } = useTextContext();
+  const { setInput } = useContext(TextContext);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);

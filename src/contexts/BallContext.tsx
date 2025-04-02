@@ -1,7 +1,9 @@
-import { createContext, useContext, useState, type ReactNode } from 'react';
+import { createContext, useState, type ReactNode } from 'react';
 import type { TextContextProps } from '../types';
 
-const TextContext = createContext<TextContextProps>({} as TextContextProps);
+export const TextContext = createContext<TextContextProps>(
+  {} as TextContextProps,
+);
 
 export const TextProvider = ({ children }: { children: ReactNode }) => {
   const [input, setInput] = useState('');
@@ -11,8 +13,4 @@ export const TextProvider = ({ children }: { children: ReactNode }) => {
       {children}
     </TextContext.Provider>
   );
-};
-
-export const useTextContext = () => {
-  return useContext(TextContext);
 };

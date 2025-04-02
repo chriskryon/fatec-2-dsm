@@ -1,9 +1,10 @@
-import { useTextContext } from '../contexts/BallContext';
+import { useContext } from 'react';
+import { TextContext } from '../contexts/BallContext';
 import { Ball } from './Ball';
 import { styles } from './styles';
 
 export const Display = () => {
-  const { input } = useTextContext();
+  const { input } = useContext(TextContext);
 
   const letters = input ? input.split('') : [];
 
