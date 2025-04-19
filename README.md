@@ -1,0 +1,36 @@
+# Desenvolvimento Web II – Prof. Arley  
+## Atividade 3 – React Routes  
+
+![Imagem do Projeto](./exercicio.png)
+
+### Descrição da Atividade  
+Desenvolver um aplicativo utilizando React com TypeScript para gerar sugestões automáticas de apostas para a Mega-Sena.
+
+### Objetivos  
+- Compreender e utilizar componentes React;  
+- Implementar React Context para o gerenciamento de dados;  
+- Passar dados entre componentes por meio de contexto e props;  
+- Criar rotas entre componentes utilizando o React Router;  
+- Utilizar o hook `useEffect` para lidar com efeitos colaterais.  
+
+### Requisitos Funcionais  
+1. A aplicação deverá ser composta por três páginas:  
+   - **Página de abertura**:  
+     - Ao clicar no botão “Clique para começar” ou no link “Palpite”, o usuário deve ser redirecionado para a rota `/palpite`.  
+     - Ao clicar no link “Histórico”, o usuário deve ser redirecionado para a rota `/historico`.  
+   - **Página de sugestão**:  
+     - Exibe automaticamente uma sugestão de aposta ao carregar a página.  
+     - Deve haver também um botão “Nova sugestão” que gera uma nova aposta.  
+   - **Página de histórico de sugestões**:  
+     - Exibe todas as sugestões geradas até o momento.  
+
+2. A comunicação entre os componentes deve ser feita usando React Context.  
+
+### Requisitos Não Funcionais  
+1. Os estilos da aplicação devem ser implementados utilizando a técnica de CSS-in-JS.  
+
+### Tecnologias Utilizadas  
+- **React**: Biblioteca para construção da interface.  
+- **TypeScript**: Superset do JavaScript para tipagem estática.  
+- **React Router**: Gerenciamento de rotas na aplicação.  
+- **CSS-in-JS**: Estilização diretamente nos componentes.  
