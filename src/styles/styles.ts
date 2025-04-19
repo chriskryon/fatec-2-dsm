@@ -16,6 +16,12 @@ export const styles = {
   divLogo: {
     display: 'flex',
   },
+  buttonLogo: {
+    cursor: 'pointer',
+    background: 'none',
+    border: 'none',
+    padding: 0,
+  },
   logo: {
     width: '150px',
   },
@@ -23,6 +29,23 @@ export const styles = {
     display: 'flex',
     gap: '20px',
     padding: '0 50px',
+  },
+  linkButton: {
+    textDecoration: 'none',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#ffffff',
+    backgroundColor: '#4CAF50',
+    padding: '10px 20px',
+    borderRadius: '8px',
+    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+    transition: 'background-color 0.3s, transform 0.2s',
+    cursor: 'pointer',
+    display: 'inline-block',
+  },
+  linkButtonHover: {
+    backgroundColor: '#45a049',
+    transform: 'scale(1.05)',
   },
   mainContainer: {
     display: 'flex',
