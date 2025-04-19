@@ -28,6 +28,7 @@ export const styles = {
 
   // Geral
   mainContainer: {
+    boxSizing: 'border-box' as const,
     display: 'flex',
     flexDirection: 'column' as const,
     justifyContent: 'center',
@@ -35,6 +36,9 @@ export const styles = {
     width: '100vw',
     height: '100vh',
     fontFamily: "'Poppins', sans-serif",
+    maxHeight: '100vh' as const,
+    overflowY: 'auto' as const,
+    paddingTop: '50px',
   },
   appContainer: {
     display: 'flex',
@@ -60,7 +64,7 @@ export const styles = {
     color: '#ffffff',
     marginBottom: '20px',
     fontFamily: "'Poppins', sans-serif",
-    width: '570px',
+    width: '700px',
     boxShadow: '0 4px 15px rgba(0, 0, 0, 0.25)',
     backdropFilter: 'blur(8px)',
     maxHeight: '70vh',
@@ -138,6 +142,7 @@ export const styles = {
     left: 0,
     width: '100%',
     position: 'absolute' as const,
+    height: '50px',
   },
   divLogo: {
     display: 'flex',
@@ -213,6 +218,7 @@ export const styles = {
   },
   suggestion: {
     display: 'flex',
+    flexWrap: 'wrap' as const,
     gap: '10px',
     paddingBottom: '10px',
   },
@@ -236,5 +242,52 @@ export const styles = {
       transform: 'scale(1.1)',
       boxShadow: '0 6px 15px rgba(0, 0, 0, 0.5)',
     },
+  },
+
+  container: {
+    paddingTop: '70px',
+    display: 'flex',
+    flexDirection: 'column' as const,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    height: '100vh', // Centraliza verticalmente
+    width: '100%', // Garante que ocupe toda a largura
+    gap: '20px', // Espaçamento entre os elementos
+  },
+  buttonContainer: {
+    display: 'flex',
+    flexWrap: 'wrap' as const,
+    justifyContent: 'center',
+    gap: '10px',
+    width: '100%',
+    maxWidth: '800px',
+  },
+  otherLinkBtn: {
+    textDecoration: 'none',
+    fontSize: '16px',
+    fontWeight: 'bold',
+    color: '#ffffff',
+    backgroundColor: '#4CAF50',
+    padding: '10px 20px',
+    borderRadius: '8px',
+    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+    transition: 'background-color 0.3s, transform 0.2s',
+    cursor: 'pointer',
+    display: 'inline-block',
+    ':hover': {
+      backgroundColor: '#45a049',
+      transform: 'scale(1.05)',
+    },
+  },
+  cardContainer: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: '100%',
+    maxWidth: '700px', // Limita a largura máxima do card
+  },
+  message: {
+    fontSize: '18px',
+    color: '#fff',
   },
 };

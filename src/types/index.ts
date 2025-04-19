@@ -4,6 +4,10 @@ export interface BallProps {
   number: string;
 }
 
+export interface LotteryCardProps {
+  lottery: Props;
+}
+
 export interface ThemeContextProps {
   darkTheme: boolean;
   toggleTheme: () => void;
@@ -24,7 +28,7 @@ export interface Props {
 }
 
 export interface LotteryContextProps {
-  megasena: Props | undefined;
+  lotteries: LotteryProps | undefined;
 }
 export interface LotteryProps {
   megasena: Props;

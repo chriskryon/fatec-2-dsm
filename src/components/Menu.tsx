@@ -23,6 +23,9 @@ export default function Menu() {
         <Link style={styles.linkButton} to="/">
           Megasena
         </Link>
+        <Link style={styles.linkButton} to="/outros">
+          Outros Concursos
+        </Link>
       </div>
     </div>
   );
