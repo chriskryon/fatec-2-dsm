@@ -8,14 +8,18 @@ export function LotteryProvider({ children }: ProviderProps) {
   const [megasena, setMegasena] = useState<Props | undefined>();
   
   useEffect(() => {
-    (async () => {
-      const result = await getLottery();
-
-      if ('megasena' in result) {
-        setMegasena(result.megasena);
+    async function fetchLottery() {
+      try {
+        const result = await getLottery();
+        if ('megasena' in result) {
+          setMegasena(result.megasena);
+        }
+      } catch (error) {
+        console.error('Erro ao buscar os dados da loteria:', error);
       }
-    })();
-
+    }
+    
+    fetchLottery();
   }, []);
   
   return (

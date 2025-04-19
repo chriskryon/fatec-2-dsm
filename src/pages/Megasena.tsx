@@ -7,10 +7,6 @@ import MegasenaSkeleton from '../components/MegasenaSkeleton';
 export default function Megasena() {
   const { megasena } = useContext(LotteryContext);
 
-  // if (!megasena) {
-  //   return <p style={styles.exercicioContainer}>Carregando...</p>;
-  // }
-
   if (!megasena) {
     return (
       <div style={styles.exercicioContainer}>
