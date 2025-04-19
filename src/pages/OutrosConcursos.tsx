@@ -6,7 +6,9 @@ import { styles } from '../styles/styles';
 
 export default function OutrosConcursos() {
   const { lotteries } = useContext(LotteryContext);
-  const [selectedLottery, setSelectedLottery] = useState<'megasena' | keyof typeof lotteries | null>('megasena');
+  const [selectedLottery, setSelectedLottery] = useState<
+    'megasena' | keyof typeof lotteries | null
+  >('megasena');
 
   if (!lotteries) {
     return (
@@ -18,8 +20,19 @@ export default function OutrosConcursos() {
 
   const otherLotteries = Object.entries(lotteries).filter(
     ([key, lottery]) =>
-      key !== 'megasena' && lottery.dezenas && lottery.dezenas.length > 0
+      key !== 'megasena' && lottery.dezenas && lottery.dezenas.length > 0,
   );
+
+  function renderSelectedLotteryCard() {
+    if (selectedLottery && lotteries?.[selectedLottery]) {
+      return <LotteryCard lottery={lotteries[selectedLottery]} />;
+    }
+    return (
+      <div style={styles.exercicioContainer}>
+        <p style={styles.message}>Selecione um concurso acima</p>
+      </div>
+    );
+  }
 
   return (
     <div style={styles.container}>
@@ -37,13 +50,7 @@ export default function OutrosConcursos() {
       </div>
 
       <div style={styles.cardContainer}>
-        {selectedLottery && lotteries[selectedLottery] ? (
-          <LotteryCard lottery={lotteries[selectedLottery]} />
-        ) : (
-          <div style={styles.exercicioContainer}>
-            <p style={styles.message}>Selecione um concurso acima</p>
-          </div>
-        )}
+        <div style={styles.cardContainer}>{renderSelectedLotteryCard()}</div>
       </div>
     </div>
   );
