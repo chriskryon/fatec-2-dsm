@@ -1,23 +1,26 @@
-import { createContext, useEffect, useState, type ReactNode } from 'react';
-import type { LotteryContextProps } from '../types';
+import { createContext, useEffect, useState } from 'react';
+import type { LotteryContextProps, Props, ProviderProps } from '../types';
+import { getLottery } from '../services/lottery';
 
-export const LotteryContext = createContext<LotteryContextProps>(
-  {} as LotteryContextProps,
-);
+export const LotteryContext = createContext({} as LotteryContextProps);
 
-export const LotteryProvider = ({ children }: { children: ReactNode }) => {
-  const [attempts, setAttempts] = useState<string[]>(() => {
-    const savedAttempts = localStorage.getItem('attempts');
-    return savedAttempts ? JSON.parse(savedAttempts) : [];
-  });
-
+export function LotteryProvider({ children }: ProviderProps) {
+  const [megasena, setMegasena] = useState<Props | undefined>();
+  
   useEffect(() => {
-    localStorage.setItem('attempts', JSON.stringify(attempts));
-  }, [attempts]);
+    (async () => {
+      const result = await getLottery();
 
+      if ('megasena' in result) {
+        setMegasena(result.megasena);
+      }
+    })();
+
+  }, []);
+  
   return (
-    <LotteryContext.Provider value={{ attempts, setAttempts }}>
+    <LotteryContext.Provider value={{ megasena }}>
       {children}
     </LotteryContext.Provider>
   );
-};
+}

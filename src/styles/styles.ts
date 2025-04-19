@@ -1,4 +1,31 @@
 export const styles = {
+  themeToggle: {
+    position: 'fixed' as const,
+    bottom: '20px',
+    left: '20px',
+    backgroundColor: '#4CAF50',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '50%',
+    width: '50px',
+    height: '50px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    cursor: 'pointer',
+    boxShadow: '0 4px 10px rgba(0, 0, 0, 0.3)',
+  },
+  darkTheme: {
+    backgroundColor: '#1e1e2f',
+    color: '#fff',
+    minHeight: '100vh',
+  },
+  lightTheme: {
+    backgroundColor: '#f9f9f9',
+    color: '#000',
+    minHeight: '100vh',
+  },
+
   // Geral
   mainContainer: {
     display: 'flex',
@@ -7,7 +34,6 @@ export const styles = {
     alignItems: 'center',
     width: '100vw',
     height: '100vh',
-    backgroundColor: '#1e1e2f',
     fontFamily: "'Poppins', sans-serif",
   },
   appContainer: {
@@ -39,6 +65,58 @@ export const styles = {
     backdropFilter: 'blur(8px)',
     maxHeight: '70vh',
     overflowY: 'auto' as const,
+  },
+
+  title: {
+    fontSize: '24px',
+    fontWeight: 'bold',
+    textTransform: 'uppercase' as const,
+    margin: '0 0',
+  },
+  spinner: {
+    fontSize: '24px',
+    color: '#4CAF50',
+    animation: 'spin 1s linear infinite',
+  },
+  '@keyframes spin': {
+    '0%': { transform: 'rotate(0deg)' },
+    '100%': { transform: 'rotate(360deg)' },
+  },
+
+  skeletonContainer: {
+    display: 'flex',
+    flexDirection: 'column' as const,
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: '100%',
+    textAlign: 'center' as const,
+  },
+  skeletonTitle: {
+    marginBottom: '10px',
+  },
+  skeletonRow: {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '10px',
+    marginTop: '20px',
+  },
+  skeletonCircle: {
+    borderRadius: '50%',
+    backgroundColor: '#e0e0e0',
+    width: '50px',
+    height: '50px',
+    animation: 'pulse 1.5s infinite',
+  },
+  skeletonLine: {
+    backgroundColor: '#e0e0e0',
+    height: '20px',
+    borderRadius: '4px',
+    animation: 'pulse 1.5s infinite',
+  },
+  '@keyframes pulse': {
+    '0%': { opacity: 1 },
+    '50%': { opacity: 0.5 },
+    '100%': { opacity: 1 },
   },
 
   // Navbar e Menu
@@ -131,7 +209,7 @@ export const styles = {
   suggestion: {
     display: 'flex',
     gap: '10px',
-    paddingBottom: '50px',
+    paddingBottom: '10px',
   },
   numero: {
     backgroundColor: '#209869',

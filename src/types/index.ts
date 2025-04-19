@@ -1,12 +1,31 @@
-export default interface ChildrenProps {
-  children: React.ReactNode;
-}
+import type { ReactNode } from 'react';
 
 export interface BallProps {
   number: string;
 }
 
+export interface Props {
+  acumulado: boolean;
+  concursoEspecial: boolean;
+  dataApuracao: string;
+  dataPorExtenso: string;
+  dataProximoConcurso: string;
+  dezenas: string[];
+  numeroDoConcurso: number;
+  quantidadeGanhadores: number;
+  tipoPublicacao: number;
+  tipoJogo: string;
+  valorEstimadoProximoConcurso: number;
+  valorPremio: number;
+}
+
 export interface LotteryContextProps {
-  attempts: string[];
-  setAttempts: React.Dispatch<React.SetStateAction<string[]>>;
+  megasena: Props | undefined;
+}
+export interface LotteryProps {
+  megasena: Props;
+}
+
+export interface ProviderProps {
+  children: ReactNode;
 }

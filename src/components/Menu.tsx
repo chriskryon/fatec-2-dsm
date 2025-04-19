@@ -20,11 +20,8 @@ export default function Menu() {
         </button>
       </div>
       <div className="links" style={styles.links}>
-        <Link style={styles.linkButton} to="/palpite">
-          Palpite
-        </Link>
-        <Link style={styles.linkButton} to="/historico">
-          Histórico
+        <Link style={styles.linkButton} to="/">
+          Megasena
         </Link>
       </div>
     </div>
