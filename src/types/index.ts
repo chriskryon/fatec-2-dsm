@@ -4,6 +4,10 @@ export interface BallProps {
   number: string;
 }
 
+export interface ThemeContextProps {
+  darkTheme: boolean;
+  toggleTheme: () => void;
+}
 export interface Props {
   acumulado: boolean;
   concursoEspecial: boolean;
