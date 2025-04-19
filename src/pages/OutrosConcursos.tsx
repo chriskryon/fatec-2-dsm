@@ -6,7 +6,7 @@ import { styles } from '../styles/styles';
 
 export default function OutrosConcursos() {
   const { lotteries } = useContext(LotteryContext);
-  const [selectedLottery, setSelectedLottery] = useState<string | null>(null);
+  const [selectedLottery, setSelectedLottery] = useState<'megasena' | keyof typeof lotteries | null>('megasena');
 
   if (!lotteries) {
     return (
@@ -23,26 +23,24 @@ export default function OutrosConcursos() {
 
   return (
     <div style={styles.container}>
-      {/* Botões para selecionar o concurso */}
       <div style={styles.buttonContainer}>
         {otherLotteries.map(([key]) => (
           <button
             type="button"
             key={key}
             style={styles.linkButton}
-            onClick={() => setSelectedLottery(key)}
+            onClick={() => setSelectedLottery(key as keyof typeof lotteries)}
           >
             {key.toUpperCase()}
           </button>
         ))}
       </div>
 
-      {/* Renderiza o card do concurso selecionado */}
       <div style={styles.cardContainer}>
-        {selectedLottery ? (
+        {selectedLottery && lotteries[selectedLottery] ? (
           <LotteryCard lottery={lotteries[selectedLottery]} />
         ) : (
-          <div>
+          <div style={styles.exercicioContainer}>
             <p style={styles.message}>Selecione um concurso acima</p>
           </div>
         )}
